@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fulvitoz · Portfólio</title>
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="/styles/main.css" />
+  <script defer src="/scripts/gallery.js"></script>
+
+  <!-- FORÇA A PÁGINA A INICIAR NO TOPO -->
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.addEventListener('load', function() {
+      window.scrollTo(0, 0);
+    });
+  </script>
+
+  <style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 24px;
+      line-height: 1;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body class="font-sans">
+
+  <!-- ============================= -->
+  <!--            HEADER            -->
+  <!-- ============================= -->
+  <header class="site-header">
+    <div class="container">
+      <h1>Fulvitoz</h1>
+      <nav>
+        <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+        <div class="nav-links" id="navLinks">
+          <a href="#ilustracoes">Ilustração</a>
+          <a href="#motions">Motion</a>
+          <a href="#projetos">Design</a>
+          <a href="#contato">Contato</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================= -->
+  <!--     APRESENTAÇÃO VISUAL      -->
+  <!-- ============================= -->
+  <section class="apresentacao-bg">
+    <div class="container header-apresentacao">
+      <div class="caixa-apresentacao texto">
+        <h2>Olá! Eu sou o Fulvitoz</h2>
+        <p>Designer gráfico, ilustrador e motion designer.</p>
+        <p>Tenho 19 anos e estou aqui trazendo alguns de meus projetos pessoais, e outros de fora que fiz ao longo do tempo, busco melhorar cada vez mais para alcançar meus objetivos e evoluir sempre.</p>
+      </div>
+  
+      <div class="caixa-apresentacao perfil">
+        <div class="foto"></div>
+        <div class="divider"></div>
+        <div class="social">
+          <a href="https://www.behance.net/Fulvitoz" target="_blank" aria-label="Behance">
+            <i class="fab fa-behance"></i>
+          </a>
+          <a href="https://www.instagram.com/fulvitoz/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/@Fulvitoz" target="_blank" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>      
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!--       CONTEÚDO PRINCIPAL     -->
+  <!-- ============================= -->
+  <main class="container">
+    <!-- Ilustrações -->
+    <section id="ilustracoes" class="section fade-in-section">
+      <h2 class="section-title">Ilustrações</h2>
+      <div id="gallery-ilustracoes" class="gallery-grid">
+    </div>
+      <button class="btn-galeria">Galeria</button>
+    </section>
+
+    <!-- Motion -->
+    <section id="motions" class="section bg-gray-100 fade-in-section">
+      <h2 class="section-title">Motion</h2>
+      <div id="gallery-motion" class="gallery-grid"></div>
+      <button class="btn-galeria">Galeria</button>
+    </section>
+
+    <!-- Design -->
+    <section id="projetos" class="section bg-gray-200 fade-in-section">
+      <h2 class="section-title">Design</h2>
+      <div class="gallery-grid">
+
+      <button class="btn-galeria">Projetos</button>
+    </section>
+
+    <!-- Parcerias -->
+    <section id="parcerias" class="section bg-gray-100 fade-in-section">
+      <h2 class="section-title">Parcerias</h2>
+      <div class="gallery-grid">
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+      </div>
+      <button class="btn-galeria">Ver Mais</button>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="section fade-in-section">
+      <div class="contato-box">
+        <div class="contato-info">
+          <p>Redes sociais e formas de contato</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================= -->
+  <!--      BOTÕES FLUTUANTES       -->
+  <!-- ============================= -->
+  <div class="floating-buttons fade-in-section">
+    <button id="scroll-top" class="btn-floating">
+      <span class="material-symbols-rounded">expand_less</span>
+    </button>
+    <button id="dark-toggle" class="btn-floating" aria-label="Alternar tema">
+      <span class="material-symbols-rounded">dark_mode</span>
+    </button>    
+  </div>
+
+  <!-- ============================= -->
+  <!--            FOOTER            -->
+  <!-- ============================= -->
+  <footer class="site-footer fade-in-section">
+    <p>&copy; 2025 Fulvitoz · Site desenvolvido por Gah e Keh</p>
+  </footer>
+
+  <!-- ============================= -->
+  <!--        ANIMAÇÃO FADE         -->
+  <!-- ============================= -->
+  <script>
+    const fadeEls = document.querySelectorAll('.fade-in-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    fadeEls.forEach(el => {
+      el.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-700');
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
